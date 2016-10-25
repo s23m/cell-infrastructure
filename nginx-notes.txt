@@ -31,7 +31,16 @@ Add the following log_format in the http section:
                            'upstream_response_time $upstream_response_time '
                            '"$http_user_agent" "$http_x_forwarded_for"';
 
-3) Install config file
+
+3) Set symbolic link for cell-ui-web dist directory
+---------------------------------------------------
+
+Create link as follows:
+
+ln -s {path-to-working-copy-of-cell-ui-web}/dist cell-ui-web-root
+
+
+4) Install config file
 ----------------------
 
 Copy config into /usr/local/etc/nginx/servers directory:
@@ -39,7 +48,7 @@ Copy config into /usr/local/etc/nginx/servers directory:
 cp cell-json-api-nginx.conf /usr/local/etc/nginx/servers/cell-json-api-nginx.conf 
 
 
-4) Reload Nginx
+5) Reload Nginx
 ---------------
 
 nginx -s reload
